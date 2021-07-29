@@ -182,10 +182,29 @@ function getmovie_name(n) {
 getmovie_name.local = 1;
 
 /////////////////////////////////////////////
-// #mark Read and Init
+// #mark GL Context
 /////////////////////////////////////////////
 
-function setdrawto(arg) {
+var implicitdrawto = "";
+var explicitdrawto = false;
+var implicit_tracker = new JitterObject("jit_gl_implicit");
+var implicit_lstnr = new JitterListener(implicit_tracker.name, implicit_callback);
+
+function implicit_callback(event) { 
+	if(!explicitdrawto && implicitdrawto != implicit_tracker.drawto[0]) {
+		// important! drawto is an array so get first element
+		implicitdrawto = implicit_tracker.drawto[0];
+		dosetdrawto(implicitdrawto);
+	}
+}
+implicit_callback.local = 1;
+
+function setdrawto(val) {
+	explicitdrawto = true;
+	dosetdrawto(val);
+}
+
+function dosetdrawto(arg) {
 	if(arg === drawto || !arg) {
 		// bounce
 		return;
@@ -199,6 +218,10 @@ function setdrawto(arg) {
 		swaplisten.subjectname = "";
 	swaplisten = new JitterListener(drawto,swapcallback);
 }
+
+/////////////////////////////////////////////
+// #mark Read and Init
+/////////////////////////////////////////////
 
 function clear() {
 	settarget(0);
