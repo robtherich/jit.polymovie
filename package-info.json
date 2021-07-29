@@ -1,0 +1,20 @@
+{
+	"name" : "jit.polymovie",
+	"version" : "0.0.1",
+	"author" : "Cycling '74",
+	"description" : "Fast switching between movies in Jitter",
+	"max_version_min" : "8.2.0",
+	"max_version_max" : "none",
+	"os" : 	{
+		"macintosh" : 		{
+			"min_version" : "none",
+			"platform" : [ "x64" ]
+		}
+,
+		"windows" : 		{
+			"min_version" : "none",
+			"platform" : [ "x64" ]
+		}
+
+	}
+}
