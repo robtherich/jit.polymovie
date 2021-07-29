@@ -19,6 +19,7 @@ declareattribute("drawto", null, "setdrawto");
 var verbose = 0;
 declareattribute("verbose", null, null);
 
+// for poly~ type addressing of individual movie instances
 var target = 0;
 declareattribute("target", null, "settarget");
 
