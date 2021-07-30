@@ -32,17 +32,9 @@
 
     <!--MESSAGES-->
     <methodlist>
-        <method name="clear">
+        <method name="anything">
             <digest>
-            Remove and release resources for all loaded files.
-            </digest>
-        </method>
-        <method name="readfolder">
-            <arglist>
-                <arg name="path" optional="1" type="symbol" />
-            </arglist>
-            <digest>
-                Load all movie files found from the the folder at path, replacing the currently loaded movie list.
+                Get and set <o>jit.movie</o> attributes on the active movie instance. See <m>play</m> for more info.
             </digest>
         </method>
         <method name="appendfolder">
@@ -53,15 +45,140 @@
                 Load all movie files found from the the folder at path and append to the current movie list.
             </digest>
         </method>
+        <method name="appendmovie">
+            <arglist>
+                <arg name="path" optional="1" type="symbol" />
+            </arglist>
+            <digest>
+                Append movie at path to the end of the movie list.
+            </digest>
+        </method>
+        <method name="clear">
+            <digest>
+            Remove and release resources for all loaded files.
+            </digest>
+        </method>        
+        <method name="getdict">
+            <digest>
+                Output the movie state dictionary out the third outlet.
+            </digest>
+            <description>
+                Output the movie state dictionary out the third outlet. This dictionary
+                contains the full list of currently loaded movie files, as well as any 
+                <o>jit.movie</o> attributes modified after loading. 
+                See also <m>readdict</m> and <m>writedict</m>.
+            </description>
+        </method>
+        <method name="play">
+            <arglist>
+                <arg name="index" optional="1" type="int" />
+            </arglist>
+            <digest>
+                Play the movie at index (0 based).
+            </digest>
+            <description>
+                Play the movie at index (0 based). Playing an instance makes it active and
+                the recepient of any attributes or playback messages (e.g. <m>start</m> and <m>stop</m>).
+            </description>
+        </method>        
+        <method name="readdict">
+            <arglist>
+                <arg name="path" optional="1" type="symbol" />
+            </arglist>
+            <digest>
+                Read the movie list contents from the dictionary at path.
+            </digest>
+            <description>
+                Read the movie list contents from a dictionary at path. 
+                If no path is given a file dialog is opened. 
+                See <m>getdict</m> for more info on polymovie dictionary usage.
+            </description>
+        </method>
+        <method name="readfolder">
+            <arglist>
+                <arg name="path" optional="1" type="symbol" />
+            </arglist>
+            <digest>
+                Load all movie files found from the the folder at path, replacing the currently loaded movie list.
+            </digest>
+        </method>
+        <method name="scrub">
+            <arglist>
+                <arg name="position" optional="0" type="float" />
+            </arglist>
+            <digest>
+                Scrub the the active movie playhead. See <m>play</m> for more info.
+            </digest>
+            <description>
+                Scrub the the active movie playhead. See <m>play</m> for more info. The position arg
+                is between 0 (movie start ) and 1 (movie end).
+            </description>
+        </method>
+        <method name="sendmovies">
+            <digest>
+                Set <o>jit.movie</o> attributes on all loaded instances.
+            </digest>
+        </method>        
+        <method name="start">
+            <digest>
+                Start playback on the active movie instance. See <m>play</m> for more info.
+            </digest>
+        </method>
+        <method name="stop">
+            <digest>
+                Stop playback on the active movie instance. See <m>play</m> for more info.
+            </digest>
+        </method>                        
+        <method name="writedict">
+            <arglist>
+                <arg name="path" optional="1" type="symbol" />
+            </arglist>
+            <digest>
+                Write the movie list contents to a dictionary at path.
+            </digest>
+            <description>
+                Write the movie list contents to a dictionary at path. 
+                If no path is given a file dialog is opened. 
+                See <m>getdict</m> for more info on polymovie dictionary usage.
+            </description>
+        </method>                
 </methodlist>
 
 <attributelist>
-    <attribute name="drawto">
-            <arglist />
-            <digest>
-                Named drawing context used for texture output
-            </digest>
+    <attribute name="cachemode" type="int">
+        <digest>
+            (EXPERIMENTAL) Enable auto cache feature when viddll is the video engine.
+        </digest>
     </attribute>
+    <attribute name="cache_sizeauto" type="float">
+        <digest>
+            (EXPERIMENTAL) Set the auto cache_size when <at>cachemode</at> is enabled (default = 5)
+        </digest>
+    </attribute>
+    <attribute name="cache_size" type="float">
+        <digest>
+            Set the cache_size for all movie instances when viddll is the video engine (default = 0.5).
+        </digest>
+    </attribute>    
+    <attribute name="drawto" type="symbol">
+        <digest>
+            Named drawing context used for texture output
+        </digest>
+    </attribute>
+    <attribute name="target" type="int">
+        <digest>
+            The polymovie instance that will receive subsequent <o>jit.movie</o> messages.
+        </digest>
+        <description>
+            The polymovie target-instance that will receive subsequent <o>jit.movie</o> messages.
+            For example <i>target 2, play 0</i> will tell the second target to play
+            the first movie file. Targets are activated dynamically by the target attribute.
+            Active targets will add their movie output name (texture or matrix) to the polymovie
+            output list. If 3 targets are activated the movie output list will contain 3 matrix or texture names, 
+            e.g. <i>jit_gl_texture texname1 texname2 texname3</i>. Sending <i>target 0</i> will deactivate
+            all targets except the first.
+        </description> 
+    </attribute>    
 </attributelist>
 
 
