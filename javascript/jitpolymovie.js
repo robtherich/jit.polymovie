@@ -83,8 +83,8 @@ function bang() {
 function swapcallback(event){
 	//post("callback: " + event.subjectname + " sent "+ event.eventname + " with (" + event.args + ")\n");			
 
-	// if context is root we use swap, if jit.gl.node use draw
-	if ((event.eventname=="swap" || event.eventname=="draw")) {
+	// if context is root we use swap, if jit.gl.node use draw or capture
+	if (event.eventname=="swap" || event.eventname=="capture" || event.eventname=="draw") {
 		drawmovies();
 	}
 }
