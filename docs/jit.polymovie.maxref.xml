@@ -22,7 +22,7 @@
     <!--ARGUMENTS-->
     <objarglist>
         <objarg name="drawto" optional="" type="message">
-            <digest>The name drawing context in which to draw (default = none). A named drawing context 
+            <digest>The named drawing context in which to draw (default = none). A named drawing context 
                 is a named instance of a <o>jit.world</o>, <o>jit.pworld</o> or <o>jit.gl.node</o> object. If no argument is 
                 provided the object will find a context 
                 <link module="core" name="jitter_gl_contexts" type="vignette">implicitly.</link>

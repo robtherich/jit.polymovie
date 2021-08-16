@@ -2316,11 +2316,11 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 15.0, 15.0, 32.0, 32.0 ],
 													"saved_attribute_attributes" : 													{
-														"activebgoncolor" : 														{
+														"lcdcolor" : 														{
 															"expression" : ""
 														}
 ,
-														"lcdcolor" : 														{
+														"activebgoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -3830,11 +3830,11 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 15.0, 15.0, 32.0, 32.0 ],
 													"saved_attribute_attributes" : 													{
-														"activebgoncolor" : 														{
+														"lcdcolor" : 														{
 															"expression" : ""
 														}
 ,
-														"lcdcolor" : 														{
+														"activebgoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -5671,11 +5671,11 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 15.0, 15.0, 32.0, 32.0 ],
 													"saved_attribute_attributes" : 													{
-														"activebgoncolor" : 														{
+														"lcdcolor" : 														{
 															"expression" : ""
 														}
 ,
-														"lcdcolor" : 														{
+														"activebgoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -6280,13 +6280,13 @@
 									"bubble" : 1,
 									"bubbleside" : 2,
 									"bubbleusescolors" : 1,
-									"fontsize" : 16.284653590709471,
 									"id" : "obj-9",
 									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 45.0, 329.5, 283.0, 80.0 ],
+									"patching_rect" : [ 45.0, 346.5, 222.0, 69.0 ],
+									"style" : "default",
 									"text" : "Dictionaries are used to save and recall movie list and individual instance attribute state"
 								}
 
@@ -6696,6 +6696,67 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"bubble" : 1,
+									"bubbleusescolors" : 1,
+									"id" : "obj-35",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 729.0, 206.5, 76.0, 40.0 ],
+									"text" : "play first movie"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-34",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 679.5, 215.0, 43.0, 23.0 ],
+									"text" : "play 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-32",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 272.5, 560.5, 256.0, 36.0 ],
+									"text" : "matrix version does not support automatic output, therefore requires bang for output"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 175.0, 180.0, 120.0, 21.0 ],
+									"presentation_linecount" : 2,
+									"text" : "drop a movie folder"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-25",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 35.0, 180.0, 104.0, 21.0 ],
+									"text" : "drop a movie file"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-30",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -6763,7 +6824,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 426.0, 344.0, 106.0, 25.0 ],
+									"patching_rect" : [ 411.0, 343.0, 106.0, 25.0 ],
 									"text" : "matrix version"
 								}
 
@@ -7016,7 +7077,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 175.0, 166.0, 72.0, 47.0 ]
+									"patching_rect" : [ 175.0, 166.0, 120.0, 47.0 ]
 								}
 
 							}
@@ -7051,7 +7112,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 35.0, 166.0, 72.0, 47.0 ]
+									"patching_rect" : [ 35.0, 166.0, 104.0, 47.0 ]
 								}
 
 							}
@@ -7061,13 +7122,13 @@
 									"filename" : "helpdetails.js",
 									"id" : "obj-2",
 									"ignoreclick" : 1,
-									"jsarguments" : [ "jit.polymovie" ],
+									"jsarguments" : [ "jit.polymovie", 100 ],
 									"maxclass" : "jsui",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 10.0, 529.0, 130.0 ]
+									"patching_rect" : [ 10.0, 10.0, 558.0, 123.0 ]
 								}
 
 							}
@@ -7230,7 +7291,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-13", 0 ],
-									"midpoints" : [ 552.5, 600.0, 534.5, 600.0, 534.5, 333.0, 552.5, 333.0 ],
+									"midpoints" : [ 552.5, 600.0, 526.5, 600.0, 526.5, 333.0, 552.5, 333.0 ],
 									"source" : [ "obj-18", 0 ]
 								}
 
@@ -7268,6 +7329,24 @@
 								"patchline" : 								{
 									"destination" : [ "obj-9", 0 ],
 									"source" : [ "obj-26", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-13", 0 ],
+									"midpoints" : [ 689.0, 269.5, 552.5, 269.5 ],
+									"order" : 0,
+									"source" : [ "obj-34", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"midpoints" : [ 689.0, 250.5, 44.5, 250.5 ],
+									"order" : 1,
+									"source" : [ "obj-34", 0 ]
 								}
 
 							}
