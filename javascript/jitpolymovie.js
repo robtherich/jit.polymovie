@@ -342,6 +342,7 @@ function getdict() {
 // from patcherargs
 function done() {
 	saveargs=false;
+	doargattrs();
 }
 
 function addmovie(path) {
